@@ -1,7 +1,10 @@
 import Image from 'next/image'
 import Container from '@/components/container'
+import Posts from '@/components/posts'
 import { twMerge } from 'tailwind-merge'
 import { formatDate } from '@/utils/formatDate'
+
+import { getDatabase } from '@/lib/notion';
 import Link from 'next/link'
 
 const posts = [
@@ -25,7 +28,14 @@ const posts = [
   }
 ]
 
-export default function Home() {
+async function getPosts() {
+  const database = await getDatabase();
+
+  return database;
+}
+
+export default async function Home() {
+  const posts2 = await getPosts();
   return (
     <Container>
 
@@ -37,6 +47,7 @@ export default function Home() {
           All the latest Tailwind CSS news, straight from the team.
         </p>
       </header>
+      <Posts posts={posts2} />
 
       <section className=' relative sm:pb-12 sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]'>
         <div className="space-y-16">
