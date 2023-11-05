@@ -50,9 +50,9 @@ export default function Posts({ className, posts }: IContainer) {
                         className="flex items-center text-sm text-sky-500 font-medium"
                     >
                         <span className="absolute -inset-y-2.5 -inset-x-4 md:-inset-y-4 md:-inset-x-6 sm:rounded-2xl" />
-                        {/* <span className="relative">
-                            Read more<span className="sr-only">, {post.properties?.Title?.title?.[0]}</span>
-                        </span> */}
+                        <span className="relative">
+                            Read more<span className="sr-only">,  <Text title={post.properties?.Name?.title} /></span>
+                        </span>
                         <svg
                             className="relative mt-px overflow-visible ml-2.5 text-sky-300 dark:text-sky-700"
                             width="3"
