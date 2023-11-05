@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "@notionhq/client": "^2.2.13",
+    "@tailwindcss/typography": "^0.5.10",
     "framer-motion": "^10.16.4",
     "next": "14.0.1",
+    "notion-client": "^6.16.0",
     "notion-utils": "^6.16.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-notion-x": "^6.16.0",
     "tailwind-merge": "^2.0.0",
     "tinytime": "^0.2.6"
   },

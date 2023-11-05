@@ -1,9 +1,8 @@
 import { Fragment } from 'react';
 import Link from 'next/link';
 
-import Text from '../text';
-import styles from '../../styles/post.module.css';
-
+import Text from '@/app/ui/notion/text';
+import styles from '@/app/post.module.css';
 export function renderBlock(block) {
   const { type, id } = block;
   const value = block[type];

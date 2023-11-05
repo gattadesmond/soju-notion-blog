@@ -9,7 +9,6 @@ interface IContainer {
 }
 
 export default function Posts({ className, posts }: IContainer) {
-    console.log("🚀 ~ file: posts.tsx:12 ~ Posts ~ posts:", posts)
     return (
         <div className="space-y-16">
             {posts.map((post: any) => {
@@ -46,7 +45,7 @@ export default function Posts({ className, posts }: IContainer) {
                         </dl>
                     </div>
                     <Link
-                        href={`/blog/${slug}`}
+                        href={`/article/${slug}`}
                         className="flex items-center text-sm text-sky-500 font-medium"
                     >
                         <span className="absolute -inset-y-2.5 -inset-x-4 md:-inset-y-4 md:-inset-x-6 sm:rounded-2xl" />
