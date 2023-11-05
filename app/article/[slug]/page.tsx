@@ -22,9 +22,9 @@ export default async function Page({ params }: { param: any }) {
 
     const notion = new NotionAPI()
 
-    const recordMap = await notion.getPage('13b520c01ba64e068af4e70b3fe76f49')
     const page = await getPageFromSlug(params?.slug);
     const blocks = await getBlocks(page?.id);
+    const recordMap = await notion.getPage(page?.id)
 
     if (!page || !blocks) {
         return <div />;
@@ -42,7 +42,7 @@ export default async function Page({ params }: { param: any }) {
                 <Text title={page.properties.Title?.title} />
             </h1>
 
-            <Test data={recordMap}/>
+            <Test data={recordMap} hmm={blocks}/>
 
           
             <article className=" prose prose-invert mx-auto">

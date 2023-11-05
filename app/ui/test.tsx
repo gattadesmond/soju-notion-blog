@@ -11,7 +11,8 @@ import 'katex/dist/katex.min.css'
 import { NotionRenderer } from 'react-notion-x'
 import { useEffect } from "react";
 
-export default  function Test({ data}) {
+export default  function Test({ data, hmm}) {
+ console.log("🚀 ~ file: test.tsx:15 ~ Test ~ hmm:", hmm)
  console.log("🚀 ~ file: test.tsx:8 ~ Text ~ data:", data)
  
     return (
