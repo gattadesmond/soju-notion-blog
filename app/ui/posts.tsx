@@ -1,18 +1,19 @@
 "use client";
 import { twMerge } from "tailwind-merge";
 import Link from 'next/link'
-import { formatDate } from '@/utils/formatDate'
+import { formatDate } from '@/app/lib/utils/formatDate'
+import Text from '@/app/ui/notion/text';
 interface IContainer {
     className?: string;
     posts: any;
 }
 
 export default function Posts({ className, posts }: IContainer) {
-    console.log("🚀 ~ file: posts.tsx:11 ~ Posts ~ posts:", posts)
+    console.log("🚀 ~ file: posts.tsx:12 ~ Posts ~ posts:", posts)
     return (
         <div className="space-y-16">
-            {posts.map((post) => {
-                const slug = post.properties?.Slug?.rich_text?.[0]?.text.content || "fsfs";
+            {posts.map((post: any) => {
+               const slug = post.properties?.Slug?.rich_text[0].text.content;
                 return (<article key={post.id} className="relative group">
                     <div className="absolute -inset-y-2.5 -inset-x-4 md:-inset-y-4 md:-inset-x-6 sm:rounded-2xl group-hover:bg-slate-50/70 dark:group-hover:bg-slate-800/50" />
                     <svg
@@ -30,12 +31,13 @@ export default function Posts({ className, posts }: IContainer) {
                     </svg>
                     <div className="relative">
                         <h3 className="text-base font-semibold tracking-tight text-slate-900 dark:text-slate-200 pt-8 lg:pt-0">
-                            {post.properties?.Name?.title?.[0]?.plain_text}
+                            <Text title={post.properties?.Name?.title} />
                         </h3>
-                        {/* <div
+
+                        <div
                             className="mt-2 mb-4 prose prose-slate prose-a:relative prose-a:z-10 dark:prose-dark line-clamp-2"
-                            dangerouslySetInnerHTML={{ __html: description }}
-                        /> */}
+
+                        > <Text title={post.properties?.Description?.rich_text} />d</div>
                         <dl className="absolute left-0 top-0 lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]">
                             <dt className="sr-only">Date</dt>
                             <dd className={twMerge('whitespace-nowrap text-sm leading-6 dark:text-slate-400')}>

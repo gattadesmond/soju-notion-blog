@@ -1,10 +1,10 @@
 import Image from 'next/image'
-import Container from '@/components/container'
-import Posts from '@/components/posts'
+import Container from '@/app/ui/container'
+import Posts from '@/app/ui/posts'
 import { twMerge } from 'tailwind-merge'
-import { formatDate } from '@/utils/formatDate'
+import { formatDate } from '@/app/lib/utils/formatDate'
 
-import { getDatabase } from '@/lib/notion';
+import { getDatabase } from '@/app/lib/notion/notion';
 import Link from 'next/link'
 
 const posts = [
@@ -47,8 +47,11 @@ export default async function Home() {
           All the latest Tailwind CSS news, straight from the team.
         </p>
       </header>
-      <Posts posts={posts2} />
-
+      <section className=' relative sm:pb-12 sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]'>
+        <div className="space-y-16">
+          <Posts posts={posts2} />
+        </div>
+      </section>
       <section className=' relative sm:pb-12 sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]'>
         <div className="space-y-16">
           {posts.map(({ title, description, date, slug }) => (
