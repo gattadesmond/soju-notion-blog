@@ -43,7 +43,7 @@ export default async function Page({ params }: { param: any }) {
             </h1>
             <section
                 className={twMerge(
-                    " relative max-w-4xl mx-auto px-4 focus:outline-none sm:px-3 md:px-5"
+                    "dark-mode relative max-w-4xl mx-auto px-4 focus:outline-none sm:px-3 md:px-5"
                 )}
             >
                 <NotionRenderer recordMap={recordMap} />

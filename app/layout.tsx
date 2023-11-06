@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import { twMerge } from 'tailwind-merge'
 import Header from "@/app/ui/header"
 import './globals.css'
-
+import './notion.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
