@@ -6,8 +6,11 @@ import Link from 'next/link'
 import Text from '@/app/ui/notion/text';
 import styles from '@/app/post.module.css';
 import { renderBlock } from '@/app/ui/notion/renderer';
-import Test from '@/app/ui/test';
-import {notionX} from "@/app/lib/notion/notion-api"
+
+import NotionRenderer from '@/app/ui/notion/notion-renderer';
+import { twMerge } from "tailwind-merge";
+
+import { notionX } from "@/app/lib/notion/notion-api"
 
 // export async function generateStaticParams() {
 //     const database = await getDatabase();
@@ -38,10 +41,14 @@ export default async function Page({ params }: { param: any }) {
             <h1 className="text-3xl">
                 <Text title={page.properties.Title?.title} />
             </h1>
+            <section
+                className={twMerge(
+                    " relative max-w-4xl mx-auto px-4 focus:outline-none sm:px-3 md:px-5"
+                )}
+            >
+                <NotionRenderer recordMap={recordMap} />
+            </section>
 
-            <Test data={recordMap} hmm={blocks}/>
-
-          
             <article className=" prose prose-invert mx-auto">
                 <section>
                     {blocks.map((block) => (

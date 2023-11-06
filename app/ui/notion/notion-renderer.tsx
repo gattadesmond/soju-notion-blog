@@ -8,7 +8,7 @@ import 'prismjs/themes/prism-tomorrow.css'
 
 // used for rendering equations (optional)
 import 'katex/dist/katex.min.css'
-import { NotionRenderer } from 'react-notion-x'
+import { NotionRenderer as Renderer } from 'react-notion-x'
 import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
@@ -82,15 +82,14 @@ const Modal = dynamic(
     }
 )
 
-export default function Test({ data }) {
+const mapPageUrl = id => `https://www.notion.so/${id.replace(/-/g, '')}`
+
+
+export default function NotionRenderer(props) {
     return (
-        <section
-            className={twMerge(
-                " relative max-w-4xl mx-auto px-4 focus:outline-none sm:px-3 md:px-5"
-            )}
-        >
-            <NotionRenderer
-                recordMap={data}
+        <>
+
+            <Renderer
                 fullPage={true}
                 darkMode={false}
                 showTableOfContents={true}
@@ -102,7 +101,11 @@ export default function Test({ data }) {
                     // Collection,
                     Equation,
                     Modal,
-                }} />
-        </section>
+                }}
+
+                {...props}
+            />
+
+        </>
     );
 }
