@@ -7,23 +7,21 @@ import Text from '@/app/ui/notion/text';
 import styles from '@/app/post.module.css';
 import { renderBlock } from '@/app/ui/notion/renderer';
 import Test from '@/app/ui/test';
-import { NotionAPI } from 'notion-client'
+import {notionX} from "@/app/lib/notion/notion-api"
 
-export async function generateStaticParams() {
-    const database = await getDatabase();
-    return database?.map((page) => {
-        const slug = page?.properties?.Slug?.formula?.string;
-        return ({ id: page.id, slug });
-    });
-}
+// export async function generateStaticParams() {
+//     const database = await getDatabase();
+//     return database?.map((page) => {
+//         const slug = page?.properties?.Slug?.formula?.string;
+//         return ({ id: page.id, slug });
+//     });
+// }
 
 export default async function Page({ params }: { param: any }) {
 
-    const notion = new NotionAPI()
-
     const page = await getPageFromSlug(params?.slug);
     const blocks = await getBlocks(page?.id);
-    const recordMap = await notion.getPage(page?.id)
+    const recordMap = await notionX.getPage(page?.id)
 
     if (!page || !blocks) {
         return <div />;

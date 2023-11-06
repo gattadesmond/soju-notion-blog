@@ -4,4 +4,4 @@ import { NotionAPI } from 'notion-client'
 //   apiBaseUrl: process.env.NOTION_API_BASE_URL
 // })
 
-export const notion = new NotionAPI()
+export const notionX = new NotionAPI()
