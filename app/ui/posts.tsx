@@ -9,6 +9,7 @@ interface IContainer {
 }
 
 export default function Posts({ className, posts }: IContainer) {
+    console.log("🚀 ~ file: posts.tsx:12 ~ Posts ~ posts:", posts)
     return (
         <div className="space-y-16">
             {posts.map((post: any) => {

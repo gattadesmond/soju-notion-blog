@@ -3,7 +3,7 @@ import { cache } from 'react';
 import { idToUuid } from 'notion-utils'
 
 export const revalidate = 3600; // revalidate the data at most every hour
-const databaseId = idToUuid(process.env.NOTION_DATABASE_ID)
+export const databaseId = process.env.NOTION_DATABASE_ID;
 
 /**
  * Returns a random integer between the specified values, inclusive.
@@ -19,7 +19,7 @@ function getRandomInt(minimum, maximum) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const notion = new Client({
+export const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 

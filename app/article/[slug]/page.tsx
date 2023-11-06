@@ -18,7 +18,6 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { param: any }) {
-    console.log("🚀 ~ file: page.tsx:16 ~ Page ~ param:", params.slug)
 
     const notion = new NotionAPI()
 
